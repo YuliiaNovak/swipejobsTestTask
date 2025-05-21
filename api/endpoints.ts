@@ -1,8 +1,5 @@
 export const endpoints = {
-  getProfileData: (workerId: string) => {
-    console.log("endpoints workerId", workerId);
-    return `/worker/${workerId}/profile`;
-  },
+  getProfileData: (workerId: string) => `/worker/${workerId}/profile`,
   worker: {
     showMatchedJobs: (workerId: string) => `/worker/${workerId}/matches`,
     acceptJob: (workerId: string, jobid: string) =>
