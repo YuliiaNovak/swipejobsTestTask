@@ -40,10 +40,10 @@ describe("ShiftList", () => {
     expect(screen.getByText("Show More")).toBeVisible();
   });
 
-  it("expands to show all shifts when 'Show More' is pressed", () => {
+  it("expands to show all shifts when 'Show More' is pressed", async () => {
     render(<ShiftList shifts={mockShifts} />);
 
-    user.press(screen.getByText("Show More"));
+    await user.press(screen.getByText("Show More"));
 
     expect(
       screen.getByText(`${mockShifts[2].startDate} - ${mockShifts[2].endDate}`)
@@ -51,11 +51,11 @@ describe("ShiftList", () => {
     expect(screen.getByText("Show Less")).toBeVisible();
   });
 
-  it("collapses when 'Show Less' is pressed", () => {
+  it("collapses when 'Show Less' is pressed", async () => {
     render(<ShiftList shifts={mockShifts} />);
 
-    user.press(screen.getByText("Show More"));
-    user.press(screen.getByText("Show Less"));
+    await user.press(screen.getByText("Show More"));
+    await user.press(screen.getByText("Show Less"));
 
     expect(
       screen.queryByText(
